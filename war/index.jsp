@@ -1,10 +1,9 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<!-- The HTML 4.01 Transitional DOCTYPE declaration-->
-<!-- above set at the top of the file will set     -->
-<!-- the browser's rendering engine into           -->
-<!-- "Quirks Mode". Replacing this declaration     -->
-<!-- with a "Standards Mode" doctype is supported, -->
-<!-- but may lead to some differences in layout.   -->
+<%@ page import="com.google.appengine.api.blobstore.BlobstoreServiceFactory" %>
+<%@ page import="com.google.appengine.api.blobstore.BlobstoreService" %>
+
+<%
+    BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
+%>
 
 <html>
 	<head>
@@ -18,5 +17,14 @@
 		<a href="trigramgenerator">Try generating a Trigram!</a><br/><br/><br/><br/>
 		
 		The code can be found <a href="https://github.com/AnandGurumurthi/TrigramGenerator" target="_new">here</a> 
+		
+		
+		<form action="trigramgenerator" method="get">
+			<input type="text" name="inputText">
+			<input type="submit" value="Submit">
+		</form>
+		
 	</body>
 </html>
+
+

@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.logging.Logger;
 
 public class Trigram {
 
@@ -14,6 +15,8 @@ public class Trigram {
 	 * This list will store the output.
 	 */
 	private List<String> outputList = new ArrayList<String>();
+	
+	private static final Logger log = Logger.getLogger(Trigram.class.getName());
 
 	/**
 	 * This map will be used to store the data. Using HashMap for faster retrieval since we dont worry about the order
@@ -21,6 +24,9 @@ public class Trigram {
 	private Map<String, List<String>> data = new HashMap<String, List<String>>();
 
 	public String generateTrigram(String inputString) {
+		log.info("An informational message.");
+        log.warning("A warning message.");
+        log.severe("An error message.");
 		processData(inputString);
 		String randomStartingPoint = getRandomStartingPoint();
 		spawnSentence(randomStartingPoint);

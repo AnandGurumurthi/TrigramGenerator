@@ -35,7 +35,7 @@
 			<c:if test="${not empty output}">
 				<div class="content heading">Output</div>
 			    <div class="content output">${output}</div>
-			    <div class="content">Try clicking the generate button again to try generating a different output.</div>
+			    <div class="content">Try clicking the generate button again to generate a different output.</div>
 			    <div class="separator"></div>
 			</c:if>
 			<div class="content">Code : <a href="https://github.com/AnandGurumurthi/TrigramGenerator" target="_new">https://github.com/AnandGurumurthi/TrigramGenerator</a></div>

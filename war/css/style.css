@@ -1,0 +1,49 @@
+.wrapper {
+	margin-left: auto;
+	margin-right: auto;
+	width: 800px;
+	border: 1px solid #CCC;
+	font-family: verdana;
+	font-size: 14px;
+}
+
+.wrapper a {
+	text-decoration: none;
+	text-color: #333;
+}
+
+.title {
+	padding-top: 15px;
+	padding-bottom: 15px; background : #CCC;
+	font-weight: bold;
+	font-size: 30px;
+	text-align: center;
+	background: #CCC;
+}
+
+.content {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+
+.submit {
+	display: block;
+	margin-top: 10px;
+	border-style: none;
+}
+
+.heading {
+	font-weight: bold;
+}
+
+.output {
+	margin: 25px;
+	font-style: italic;
+	background: #CCC;
+}
+
+.separator {
+	background: #CCC;
+	padding-bottom: 2px;
+}

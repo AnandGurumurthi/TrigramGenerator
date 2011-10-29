@@ -9,24 +9,30 @@ import java.util.Map;
 import java.util.Random;
 import java.util.logging.Logger;
 
+/**
+ * Generate the trigram with the given user input
+ * 
+ * @author Anand
+ *
+ */
 public class Trigram {
 
-	/**
-	 * This list will store the output.
-	 */
-	private List<String> outputList = new ArrayList<String>();
-	
 	private static final Logger log = Logger.getLogger(Trigram.class.getName());
-
-	/**
-	 * This map will be used to store the data. Using HashMap for faster retrieval since we dont worry about the order
-	 */
+	private List<String> outputList = new ArrayList<String>();
 	private Map<String, List<String>> data = new HashMap<String, List<String>>();
 
+	/**
+	 * Generate the trigram with the given user input. Process the user data and form a map. Choose a random starting point and spawn
+	 * sentence.
+	 * 
+	 * @param inputString
+	 * @return
+	 */
 	public String generateTrigram(String inputString) {
-		log.info("An informational message.");
-        log.warning("A warning message.");
-        log.severe("An error message.");
+		if (null == inputString || inputString.trim().length() == 0) {
+			log.warning("Input string cannot be empty");
+			return "";
+		}
 		processData(inputString);
 		String randomStartingPoint = getRandomStartingPoint();
 		spawnSentence(randomStartingPoint);

@@ -28,12 +28,24 @@ public class TrigramGeneratorTest {
 	}
 	
 	@Test
+	public void testGenerateNGramWithLessThanMinimumWords() {
+		try {
+			TrigramGenerator trigramGenerator = new TrigramGenerator();
+			MapDataHandler dataHandler = new MapDataHandler();
+			trigramGenerator.setDataHandler(dataHandler);
+			Assert.assertEquals(trigramGenerator.generateNGram("I wish"), TrigramGenerator.MINIMUM_WORDS_ERROR_MSG);
+		} catch (Exception e) {
+			Assert.fail();
+		}
+	}
+	
+	@Test
 	public void testGenerateNGramWithEmptyInput() {
 		try {
 			TrigramGenerator trigramGenerator = new TrigramGenerator();
 			MapDataHandler dataHandler = new MapDataHandler();
 			trigramGenerator.setDataHandler(dataHandler);
-			Assert.assertEquals(trigramGenerator.generateNGram(""), "Cannot function with empty text :( ");
+			Assert.assertEquals(trigramGenerator.generateNGram(""), TrigramGenerator.EMPTY_INPUT_ERROR_MSG);
 		} catch (Exception e) {
 			Assert.fail();
 		}
@@ -45,7 +57,7 @@ public class TrigramGeneratorTest {
 			TrigramGenerator trigramGenerator = new TrigramGenerator();
 			MapDataHandler dataHandler = new MapDataHandler();
 			trigramGenerator.setDataHandler(dataHandler);
-			Assert.assertEquals(trigramGenerator.generateNGram(null), "Cannot function with empty text :( ");
+			Assert.assertEquals(trigramGenerator.generateNGram(null), TrigramGenerator.EMPTY_INPUT_ERROR_MSG);
 		} catch (Exception e) {
 			Assert.fail();
 		}

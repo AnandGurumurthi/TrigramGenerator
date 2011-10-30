@@ -5,5 +5,13 @@
 	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="src/lib/testng-6.3.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jstl.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-beans.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-context.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-core.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-web.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-webmvc.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/standard.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-logging-1.1.1.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

@@ -1,7 +1,6 @@
 package com.trigram.datahandler;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -22,30 +21,33 @@ public class MapDataHandler implements DataHandler {
 
 	private Map<String, List<String>> data = new HashMap<String, List<String>>();
 	private static final Logger log = Logger.getLogger(MapDataHandler.class.getName());
+	
+	/**
+	 * Initializes the DataHandler - in this case initialize the Map
+	 */
+	public void init() {
+		data = new HashMap<String, List<String>>();
+	}
 
 	/**
-	 * Gets a string as an input and forms a map for the Trigram.
+	 * Gets a key and value and puts it in the map
 	 * 
-	 * Look at each set of three adjacent words in a document. Use the first two words of the set as a key, and remember the fact that the
-	 * third word followed that key.
+	 * @param key
+	 * @param value
 	 * 
-	 * @param inputData
+	 * @throws DataHandlerException
 	 */
-	public void processData(String inputData) throws DataHandlerException {
-		if (null == inputData || inputData.trim().length() == 0) {
-			throw new DataHandlerException("Input string cannot be null or empty");
-		}
-		inputData = inputData.replaceAll("\\p{P}+", "");
-		List<String> inputWordsList = Arrays.asList(inputData.split(" "));
-		for (int i = 0; i < inputWordsList.size() - 2; i++) {
-			String key = inputWordsList.get(i) + " " + inputWordsList.get(i + 1);
-			String value = inputWordsList.get(i + 2);
+	public void put(String key, String value) throws DataHandlerException {
+		if (key != null && key.trim().length() > 0 && value != null && value.trim().length() > 0) {
 			List<String> values = new ArrayList<String>();
 			if (data.containsKey(key)) {
 				values = data.get(key);
 			}
 			values.add(value);
 			data.put(key, values);
+		} else {
+			log.warning("Key or value cannot be null or empty");
+			throw new DataHandlerException("Key or value cannot be null or empty");
 		}
 	}
 

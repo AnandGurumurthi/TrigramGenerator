@@ -22,8 +22,9 @@ public class TrigramGenerator implements NGramGenerator {
 	private DataHandler dataHandler;
 	private static final Logger log = Logger.getLogger(TrigramGenerator.class.getName());
 	private List<String> outputList;
-	private static final String EMPTY_INPUT_ERROR_MSG = "Cannot function with empty text :( ";
-	private static final String GENERIC_ERROR_MSG = "Exception occurred during trigram generation";
+	public static final String EMPTY_INPUT_ERROR_MSG = "Cannot function with empty text :( ";
+	public static final String GENERIC_ERROR_MSG = "Exception occurred during trigram generation";
+	public static final String MINIMUM_WORDS_ERROR_MSG = "Trigram generation requires minimum of 3 words";
 
 	/**
 	 * Generate n-gram for the given user input
@@ -37,8 +38,13 @@ public class TrigramGenerator implements NGramGenerator {
 				log.warning("Input string cannot be empty");
 				return EMPTY_INPUT_ERROR_MSG;
 			}
+			if(Arrays.asList(inputText.split(" ")).size() < 3) {
+				log.warning("Minimum words requirement not met");
+				return MINIMUM_WORDS_ERROR_MSG;
+			}
 			outputList = new ArrayList<String>();
-			dataHandler.processData(inputText);
+			dataHandler.init();
+			processData(inputText);
 			String randomStartingPoint = dataHandler.getRandomKey();
 			outputList.addAll(Arrays.asList(randomStartingPoint.split(" ")));
 			spawnSentence(randomStartingPoint);
@@ -50,6 +56,24 @@ public class TrigramGenerator implements NGramGenerator {
 		} catch (Exception e) {
 			log.severe(e.getMessage());
 			return GENERIC_ERROR_MSG;
+		}
+	}
+	
+	/**
+	 * Gets a string as an input and forms a map for the Trigram.
+	 * 
+	 * Look at each set of three adjacent words in a document. Use the first two words of the set as a key, and remember the fact that the
+	 * third word followed that key.
+	 * 
+	 * @param inputData
+	 */
+	private void processData(String inputText) throws DataHandlerException {
+		inputText = inputText.replaceAll("\\p{P}+", "");
+		List<String> inputWordsList = Arrays.asList(inputText.split(" "));
+		for (int i = 0; i < inputWordsList.size() - 2; i++) {
+			String key = inputWordsList.get(i) + " " + inputWordsList.get(i + 1);
+			String value = inputWordsList.get(i + 2);
+			dataHandler.put(key, value);
 		}
 	}
 	

@@ -10,16 +10,21 @@ import java.util.Set;
  * 
  */
 public interface DataHandler {
+	
+	/**
+	 * Initializes the DataHandler
+	 */
+	public void init();
 
 	/**
-	 * Gets a string as an input and forms a map for the Trigram.
+	 * Gets a key and value and puts it in the map
 	 * 
-	 * Look at each set of three adjacent words in a document. Use the first two words of the set as a key, and remember the fact that the
-	 * third word followed that key.
+	 * @param key
+	 * @param value
 	 * 
-	 * @param inputData
+	 * @throws DataHandlerException
 	 */
-	public void processData(String inputData) throws DataHandlerException;
+	public void put(String key, String value) throws DataHandlerException;
 
 	/**
 	 * Returns the set of keys present in the data

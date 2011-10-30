@@ -35,7 +35,13 @@
 				rules defined by the Generator interface.
 			</div>
 			<div class="content">
-				2. A good approach for generating a n-gram is
+				2. The DataHandler class is agnostic of the
+				n-gram implementation. If the TrigramGenerator is replaced with
+				another n-gram generator, there should not be any change needed in
+				the DataHandler interface.
+			</div>
+			<div class="content">
+				3. A good approach for generating a n-gram is
 				using the map data structure. The DataHandler interface is designed
 				by keeping this in mind. The MapDataHandler is a basic implementation
 				of the DataHandler interface by using a HashMap. If the need arises

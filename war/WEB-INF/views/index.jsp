@@ -41,8 +41,7 @@
 			    <div class="content">Try clicking the generate button again to generate a different output.</div>
 			    <div class="separator"></div>
 			</c:if>
-			<div class="content"><a href="Flowchart.png" target="_new">Flowchart</a></div>
-			<div class="content"><a href="SequenceDiagram.png" target="_new">Sequence Diagram</a></div>
+			<div class="content"><a href="design.html" target="_new">Design</a></div>
 			<div class="content">Code : <a href="https://github.com/AnandGurumurthi/TrigramGenerator" target="_new">https://github.com/AnandGurumurthi/TrigramGenerator</a></div>
 			<div class="content">Idea from <a href="http://codekata.pragprog.com/2007/01/kata_fourteen_t.html" target="_new">CodeKata</a></div>
 		</div>

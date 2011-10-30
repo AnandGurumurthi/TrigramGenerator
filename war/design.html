@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>Trigram Generator - Design</title>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="title">Trigram Generator - Design</div>
+			<div class="content heading">Purpose of the project</div>
+			<div class="content">
+				The purpose of the project is to implement a
+				n-gram generator. It takes the user input, processes the data and
+				generates an n-gram. n-grams can be used to mutate text into new,
+				surreal, forms.
+			</div>
+			<div class="content heading">High level design</div>
+			<div class="content">
+				This project is built using Spring MVC. We have
+				a DispatcherServlet, that sends request to the mapped controllers.
+				The controllers are injected with the Generator. The controller
+				passes the user input to the Generator. The Generator passes it to
+				the DataHandler which processes the data and forms the data structure
+				based on the implementation defined. The Generator then does
+				recursive loop and forms a new sentence based on the algorithm
+				defined.
+			</div>
+			<div class="content heading">Benefits</div>
+			<div class="content">
+				1. The controller is designed to take a
+				Generator interface. By leveraging the dependency injection of
+				Spring, we can control the implementation of the n-gram algorithm. As
+				a first step, the TrigramGenerator is used. The implementation can
+				easily be changed by adding a new Generator as long as it follows the
+				rules defined by the Generator interface.
+			</div>
+			<div class="content">
+				2. A good approach for generating a n-gram is
+				using the map data structure. The DataHandler interface is designed
+				by keeping this in mind. The MapDataHandler is a basic implementation
+				of the DataHandler interface by using a HashMap. If the need arises
+				for handling larger data-sets or to achieve better performance, the
+				program can be extended to use an in-memory database like memcached
+				or Bekeley Database.
+			</div>
+			<div class="content"><a href="Flowchart.png" target="_new">Flowchart</a></div>
+			<div class="content"><a href="SequenceDiagram.png" target="_new">Sequence Diagram</a></div>
+		</div>
+	</body>
+</html>
